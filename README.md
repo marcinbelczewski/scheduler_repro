@@ -186,7 +186,7 @@ When an AgentCore runtime instance starts and receives its first request, the fo
 WARNING: Invalid HTTP request received.
 ```
 
-This occurs because the AgentCore sidecar performs TLS/SSL handshake probing to determine whether the agent server supports HTTPS. It first attempts an HTTPS connection, which fails (since agents typically run HTTP internally), then falls back to HTTP.
+This likely occurs because the AgentCore sidecar performs TLS/SSL handshake probing to determine whether the agent server supports HTTPS. It appears to first attempt an HTTPS connection, which fails (since agents typically run HTTP internally), then falls back to HTTP.
 
 **Impact**: This warning is benign but confusing for developers, as it appears to indicate an error when the agent is functioning correctly.
 
