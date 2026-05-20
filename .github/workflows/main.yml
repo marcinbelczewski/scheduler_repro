@@ -9,11 +9,9 @@ jobs:
     runs-on: codebuild-ea-foundation-${{ github.run_id }}-${{ github.run_attempt }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-
-      - name: Show runner context
+      - name: Show runner spec
         run: |
+          cat /tmp/codebuild/readonly/buildspec.yml
           echo "Runner OS: $RUNNER_OS"
           echo "Runner arch: $RUNNER_ARCH"
           echo "Runner name: $RUNNER_NAME"
