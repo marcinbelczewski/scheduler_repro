@@ -1,0 +1,20 @@
+name: Scale Set Smoke Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello:
+    name: Hello from runner scale set
+    runs-on: codebuild-ea-foundation-${{ github.run_id }}-${{ github.run_attempt }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Show runner context
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner arch: $RUNNER_ARCH"
+          echo "Runner name: $RUNNER_NAME"
+          uname -a
